@@ -1,0 +1,22 @@
+{
+  "name": "logsaw",
+  "version": "0.0.1",
+  "author": "Martin Rue",
+  "description": "A simple JSON file-based logger for node",
+  "main": "logsaw.js",
+  "keywords": [
+    "json",
+    "logging",
+    "logger"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "mkdirp": "^0.5.0"
+  },
+  "homepage": "https://github.com/martinrue/logsaw",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinrue/logsaw.git"
+  }
+}
