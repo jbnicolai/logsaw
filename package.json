@@ -1,6 +1,6 @@
 {
   "name": "logsaw",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Martin Rue",
   "description": "A simple JSON file-based logger for node",
   "main": "logsaw.js",

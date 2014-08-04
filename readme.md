@@ -35,24 +35,29 @@ logger.configure({
 | Key         | Default  Value           | Description                                          |
 |-------------|--------------------------|------------------------------------------------------|
 | console     | true if not production   | display logs on console                              |
-| verbose     | false                    | show simple (false) or full (true) log on console    |
-| generators  | false                    | allows log functions to be yielded if true           |
+| verbose     | false                    | display complete log object on console               |
+| debug       | false                    | save `debug` logs to log file                        |
+| generators  | false                    | allow log functions to be yielded from ES6 generator |
 | directory   | `process.cwd()` + 'logs' | the directory to write log files to (created if new) |
 
 ## API
 
-logsaw exposes 4 functions, `log`, `info`, `warn` and `error`. All functions take a single object argument which may contain `type`, `message`, `context` and `data`.
+logsaw exposes 4 functions: `debug()`, `info()`, `warn()` and `error()`. All functions take a single object argument which may contain `message`, `context` and `data` fields.
+You may specify a `type` field in calls to `info()` to create custom log types. Calls to `debug()` are saved to the log file only if `{ debug: true }` is set in config.
 
 ### Example
 
 ```javascript
 var logger = require('logsaw');
 
+// creates a debug log (saved to the log file if debug is set to true in config)
+logger.debug({ message: 'some debug message', data: { /*...*/ } });
+
 // creates an info log
 logger.info({ message: 'user signed up' });
 
 // creates a custom user-signup log
-logger.log({ type: 'user-signup', message: 'user signed up' });
+logger.info({ type: 'user-signup', message: 'user signed up' });
 
 // creates a warning log with a context
 logger.warn({ message: 'account locked', context: 'user@domain.com' });
